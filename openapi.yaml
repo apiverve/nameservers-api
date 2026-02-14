@@ -1,0 +1,91 @@
+openapi: 3.0.4
+info:
+  title: Nameservers
+  description: >-
+    Nameservers is a tool for looking up the authoritative nameservers for any
+    domain. Returns nameserver hostnames, IP addresses, reverse DNS, and owner
+    information.
+  termsOfService: https://apiverve.com/terms/
+  contact:
+    name: APIVerve Support
+    email: hello@apiverve.com
+    url: https://apiverve.com/contact
+  version: 1.0.0
+externalDocs:
+  description: Learn more about APIVerve
+  url: https://docs.apiverve.com?utm_source=openapi
+servers:
+  - url: https://api.apiverve.com/
+paths:
+  /v1/nameservers:
+    get:
+      summary: Get Domain Nameservers
+      description: >-
+        Get the authoritative nameservers for a domain including IP addresses
+        and owner information.
+      operationId: nameservers
+      parameters:
+        - name: domain
+          in: query
+          schema:
+            type: string
+          required: true
+          description: The domain name to lookup nameservers for
+          example: google.com
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: status
+                  error:
+                    type: string
+                    description: error
+                  data:
+                    type: object
+                    description: data
+              example:
+                status: ok
+                error: null
+                data:
+                  domain: google.com
+                  nameservers:
+                    - nameserver: ns1.google.com
+                      ipAddresses:
+                        - 216.239.32.10
+                      reverseDns: ns1.google.com
+                      owner: google.com
+                    - nameserver: ns2.google.com
+                      ipAddresses:
+                        - 216.239.34.10
+                      reverseDns: ns2.google.com
+                      owner: google.com
+                    - nameserver: ns3.google.com
+                      ipAddresses:
+                        - 216.239.36.10
+                      reverseDns: ns3.google.com
+                      owner: google.com
+                    - nameserver: ns4.google.com
+                      ipAddresses:
+                        - 216.239.38.10
+                      reverseDns: ns4.google.com
+                      owner: google.com
+        '401':
+          description: Your request was not authorized, or your API Key was invalid
+        '404':
+          description: Requested resource was not found
+        '500':
+          description: A server error has occurred, try again later
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
+security:
+  - api_key: []
