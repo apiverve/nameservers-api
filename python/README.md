@@ -250,8 +250,9 @@ from apiverve_nameservers.apiClient import NameserversAPIClient
 
 api = NameserversAPIClient("[YOUR_API_KEY]")
 
+query = { "domain": "google.com" }
+
 try:
-    query = { "domain": "google.com" }
     result = api.execute(query)
     print(result)
 finally:
