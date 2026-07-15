@@ -123,6 +123,8 @@ async function makeRequest() {
   "error": null,
   "data": {
     "domain": "google.com",
+    "nameserverCount": 4,
+    "hasMultipleProviders": false,
     "nameservers": [
       {
         "nameserver": "ns1.google.com",
@@ -139,23 +141,10 @@ async function makeRequest() {
         ],
         "reverseDns": "ns2.google.com",
         "owner": "google.com"
-      },
-      {
-        "nameserver": "ns3.google.com",
-        "ipAddresses": [
-          "216.239.36.10"
-        ],
-        "reverseDns": "ns3.google.com",
-        "owner": "google.com"
-      },
-      {
-        "nameserver": "ns4.google.com",
-        "ipAddresses": [
-          "216.239.38.10"
-        ],
-        "reverseDns": "ns4.google.com",
-        "owner": "google.com"
       }
+    ],
+    "uniqueOwners": [
+      "google.com"
     ]
   }
 }
