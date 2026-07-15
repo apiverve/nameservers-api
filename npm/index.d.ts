@@ -4,24 +4,39 @@ declare module '@apiverve/nameservers' {
     secure?: boolean;
   }
 
+  /**
+   * Describes fields the current plan does not unlock. Locked fields arrive as null
+   * in `data`; `locked_fields` names them, using dot paths for nested fields.
+   * Absent when the plan unlocks everything.
+   */
+  export interface PremiumInfo {
+    message: string;
+    upgrade_url: string;
+    locked_fields: string[];
+  }
+
   export interface nameserversResponse {
     status: string;
     error: string | null;
     data: NameserversData;
     code?: number;
+    premium?: PremiumInfo;
   }
 
 
   interface NameserversData {
-      domain:      string;
-      nameservers: Nameserver[];
+      domain:               null | string;
+      nameserverCount:      number | null;
+      hasMultipleProviders: boolean | null;
+      nameservers:          Nameserver[];
+      uniqueOwners:         (null | string)[];
   }
   
   interface Nameserver {
-      nameserver:  string;
-      ipAddresses: string[];
-      reverseDNS:  string;
-      owner:       string;
+      nameserver:  null | string;
+      ipAddresses: (null | string)[];
+      reverseDNS:  null | string;
+      owner:       null | string;
   }
 
   export default class nameserversWrapper {
