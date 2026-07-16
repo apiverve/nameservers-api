@@ -25,6 +25,9 @@ namespace APIVerve.API.Nameservers
 
         [JsonProperty("data")]
         public Data Data { get; set; }
+
+        [JsonProperty("premium")]
+        public Premium Premium { get; set; }
     }
 
     public partial class Data
@@ -32,8 +35,17 @@ namespace APIVerve.API.Nameservers
         [JsonProperty("domain")]
         public string Domain { get; set; }
 
+        [JsonProperty("nameserverCount")]
+        public long? NameserverCount { get; set; }
+
+        [JsonProperty("hasMultipleProviders")]
+        public bool? HasMultipleProviders { get; set; }
+
         [JsonProperty("nameservers")]
         public Nameserver[] Nameservers { get; set; }
+
+        [JsonProperty("uniqueOwners")]
+        public string[] UniqueOwners { get; set; }
     }
 
     public partial class Nameserver
@@ -49,5 +61,17 @@ namespace APIVerve.API.Nameservers
 
         [JsonProperty("owner")]
         public string Owner { get; set; }
+    }
+
+    public partial class Premium
+    {
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
+        [JsonProperty("upgrade_url")]
+        public Uri UpgradeUrl { get; set; }
+
+        [JsonProperty("locked_fields")]
+        public string[] LockedFields { get; set; }
     }
 }
