@@ -2,9 +2,9 @@ openapi: 3.0.4
 info:
   title: Nameservers
   description: >-
-    Nameservers is a tool for looking up the authoritative nameservers for any
-    domain. Returns nameserver hostnames, IP addresses, reverse DNS, and owner
-    information.
+    Nameservers queries authoritative DNS records for any domain to list its
+    nameservers, IP addresses, and reverse DNS records. It detects multiple DNS
+    providers, counts total nameservers, and identifies who runs each server.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
@@ -19,7 +19,7 @@ servers:
 paths:
   /v1/nameservers:
     get:
-      summary: Get Domain Nameservers
+      summary: Nameservers
       description: >-
         Get the authoritative nameservers for a domain including IP addresses
         and owner information.

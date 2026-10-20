@@ -1,13 +1,13 @@
-# [Nameservers API](https://apiverve.com/marketplace/nameservers?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+# [Nameservers API](https://apiverve.com/marketplace/nameservers?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 
-Nameservers is a tool for looking up the authoritative nameservers for any domain. Returns nameserver hostnames, IP addresses, reverse DNS, and owner information.
+Nameservers queries authoritative DNS records for any domain to list its nameservers, IP addresses, and reverse DNS records. It detects multiple DNS providers, counts total nameservers, and identifies who runs each server.
 
 The Nameservers API provides a simple, reliable way to integrate nameservers functionality into your applications. Built for developers who need production-ready nameservers capabilities without the complexity of building from scratch.
 
-**[View API Details →](https://apiverve.com/marketplace/nameservers?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)**
+**[View API Details →](https://apiverve.com/marketplace/nameservers?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com/marketplace/nameservers?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com/marketplace/nameservers?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 [![Method](https://img.shields.io/badge/Method-GET-blue.svg)](#)
 [![Platform](https://img.shields.io/badge/Platform-Multi--Platform-orange.svg)](#installation)
 
@@ -161,7 +161,7 @@ go get github.com/apiverve/nameservers-api/go
 
 ## Documentation
 
-- 🏠 **API Home:** [Nameservers API](https://apiverve.com/marketplace/nameservers?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 🏠 **API Home:** [Nameservers API](https://apiverve.com/marketplace/nameservers?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 - 📚 **API Reference:** [docs.apiverve.com/ref/nameservers](https://docs.apiverve.com/ref/nameservers)
 - 📖 **OpenAPI Spec:** [openapi.yaml](./openapi.yaml)
 - 💡 **Examples:** [examples/](./examples/)
@@ -191,11 +191,51 @@ x-api-key: YOUR_API_KEY_HERE
 Get your API key: [https://apiverve.com](https://apiverve.com)
 
 ### Response Format
-All responses are JSON with this structure:
+
+Every APIVerve endpoint returns the same envelope — check `status`, then read `data`:
+
 ```json
 {
   "status": "ok",
+  "error": null,
   "data": { ... }
+}
+```
+
+### Example Response
+
+A real response from the Nameservers API:
+
+```json
+{
+  "status": "ok",
+  "error": null,
+  "data": {
+    "domain": "google.com",
+    "nameserverCount": 4,
+    "hasMultipleProviders": false,
+    "nameservers": [
+      {
+        "nameserver": "ns1.google.com",
+        "ipAddresses": [
+          "216.239.32.10"
+        ],
+        "reverseDns": "ns1.google.com",
+        "owner": "google.com"
+      },
+      {
+        "nameserver": "ns2.google.com",
+        "ipAddresses": [
+          "216.239.34.10"
+        ],
+        "reverseDns": "ns2.google.com",
+        "owner": "google.com"
+      }
+    ],
+    "uniqueOwners": [
+      "google.com"
+    ]
+  }
 }
 ```
 
@@ -203,7 +243,7 @@ All responses are JSON with this structure:
 
 ## Support & Community
 
-- 🏠 **API Home**: [Nameservers API](https://apiverve.com/marketplace/nameservers?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 🏠 **API Home**: [Nameservers API](https://apiverve.com/marketplace/nameservers?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 - 💬 **Support**: [https://apiverve.com/contact](https://apiverve.com/contact)
 - 🐛 **Issues**: [GitHub Issues](../../issues)
 - 📖 **Documentation**: [https://docs.apiverve.com](https://docs.apiverve.com)
