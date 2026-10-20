@@ -1,13 +1,12 @@
 Nameservers API
 ============
 
-Nameservers is a tool for looking up the authoritative nameservers for any domain. Returns nameserver hostnames, IP addresses, reverse DNS, and owner information.
+Nameservers queries authoritative DNS records for any domain to list its nameservers, IP addresses, and reverse DNS records. It detects multiple DNS providers, counts total nameservers, and identifies who runs each server.
 
-![Build Status](https://img.shields.io/badge/build-passing-green)
-![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
-![Prod Ready](https://img.shields.io/badge/production-ready-blue)
 
-This is a .NET Wrapper for the [Nameservers API](https://apiverve.com/marketplace/nameservers?utm_source=nuget&utm_medium=readme)
+[![NuGet version](https://img.shields.io/nuget/v/APIVerve.API.Nameservers.svg)](https://www.nuget.org/packages/APIVerve.API.Nameservers)
+
+This is a .NET wrapper for the [Nameservers API](https://apiverve.com/marketplace/nameservers?utm_source=nuget&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -40,8 +39,8 @@ From within Visual Studio:
 
 ## Configuration
 
-Before using the nameservers API client, you have to setup your account and obtain your API Key.
-You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=nuget&utm_medium=readme)
+Before using the Nameservers API client, you have to setup your account and obtain your API Key.
+You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=nuget&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -61,8 +60,8 @@ class Program
         var apiClient = new NameserversAPIClient("[YOUR_API_KEY]");
 
         var queryOptions = new NameserversQueryOptions {
-    Domain = "google.com"
-};
+            Domain = "google.com"
+        };
 
         // Make the API call
         try
@@ -92,7 +91,7 @@ class Program
 
 ## Usage
 
-The Nameservers API documentation is found here: [https://docs.apiverve.com/ref/nameservers](https://docs.apiverve.com/ref/nameservers?utm_source=nuget&utm_medium=readme).
+The Nameservers API documentation is found here: [https://docs.apiverve.com/ref/nameservers](https://docs.apiverve.com/ref/nameservers?utm_source=nuget&utm_medium=referral&utm_content=readme).
 You can find parameters, example responses, and status codes documented here.
 
 ### Setup
@@ -125,8 +124,8 @@ public class Example
         var apiClient = new NameserversAPIClient("[YOUR_API_KEY]");
 
         var queryOptions = new NameserversQueryOptions {
-    Domain = "google.com"
-};
+            Domain = "google.com"
+        };
 
         var response = await apiClient.ExecuteAsync(queryOptions);
 
@@ -157,8 +156,8 @@ public class Example
         var apiClient = new NameserversAPIClient("[YOUR_API_KEY]");
 
         var queryOptions = new NameserversQueryOptions {
-    Domain = "google.com"
-};
+            Domain = "google.com"
+        };
 
         var response = apiClient.Execute(queryOptions);
 
@@ -194,8 +193,8 @@ public class Example
         var apiClient = new NameserversAPIClient("[YOUR_API_KEY]");
 
         var queryOptions = new NameserversQueryOptions {
-    Domain = "google.com"
-};
+            Domain = "google.com"
+        };
 
         try
         {
@@ -250,8 +249,8 @@ public class Example
         apiClient.SetRetryDelay(2000);     // Wait 2 seconds between retries
 
         var queryOptions = new NameserversQueryOptions {
-    Domain = "google.com"
-};
+            Domain = "google.com"
+        };
 
         try
         {
@@ -399,7 +398,7 @@ using (var apiClient = new NameserversAPIClient("[YOUR_API_KEY]"))
 
 ## Customer Support
 
-Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=nuget&utm_medium=readme).
+Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=nuget&utm_medium=referral&utm_content=readme).
 
 ---
 
@@ -410,12 +409,12 @@ Stay up to date by following [@apiverveHQ](https://twitter.com/apiverveHQ) on Tw
 
 ## Legal
 
-All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=nuget&utm_medium=readme) and all legal documents and agreements.
+All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=nuget&utm_medium=referral&utm_content=readme) and all legal documents and agreements.
 
 ---
 
 ## License
-Licensed under the The MIT License (MIT)
+Licensed under the MIT License (MIT)
 
 Copyright (&copy;) 2026 APIVerve, and EvlarSoft LLC
 
